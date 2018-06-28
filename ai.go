@@ -10,7 +10,7 @@ func ComputerMove(g *Game, colour string) (int, int) {
 	options := g.GetAllMoves(r, colour)
 	fmt.Println("Options", options, "roll", r)
 	if len(options) == 0 {
-		return -2, -1
+		return -2, 0
 	}
 	if len(options) == 1 {
 		return options[0], r
@@ -22,7 +22,11 @@ func ComputerMove(g *Game, colour string) (int, int) {
 		myBoard, theirBoard, myStones, theirStones := trialMove(g, colour, options[i], r)
 		moveScores[i] = score(myBoard, theirBoard, myStones, theirStones)
 	}
-	return pickBest(options, moveScores), r
+	fmt.Println("options", options)
+	fmt.Println("scores ", moveScores)
+	bestMove := pickBest(options, moveScores)
+	fmt.Println("choice", bestMove)
+	return bestMove, r
 }
 
 func copyRow(source Row, destination *Row) {
