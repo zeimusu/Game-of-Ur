@@ -8,7 +8,7 @@ import (
 func ComputerMove(g *Game, colour string) (int, int) {
 	r := roll()
 	options := g.GetAllMoves(r, colour)
-	fmt.Println("Options", options, "roll", r)
+	//fmt.Println("Options", options, "roll", r)
 	if len(options) == 0 {
 		return -2, 0
 	}
@@ -18,14 +18,14 @@ func ComputerMove(g *Game, colour string) (int, int) {
 	moveScores := make([]float64, len(options))
 	//use some ai to choose the best move.
 	for i := range options {
-		fmt.Println("testing", options[i])
+		//fmt.Println("testing", options[i])
 		myBoard, theirBoard, myStones, theirStones := trialMove(g, colour, options[i], r)
 		moveScores[i] = score(myBoard, theirBoard, myStones, theirStones)
 	}
-	fmt.Println("options", options)
-	fmt.Println("scores ", moveScores)
+	//fmt.Println("options", options)
+	//fmt.Println("scores ", moveScores)
 	bestMove := pickBest(options, moveScores)
-	fmt.Println("choice", bestMove)
+	//fmt.Println("choice", bestMove)
 	return bestMove, r
 }
 
@@ -50,9 +50,9 @@ func trialMove(g *Game, colour string, from, spaces int) (Row, Row, int, int) {
 		myStones = g.WhiteStones
 		theirStones = g.BlackStones
 	}
-	fmt.Println("myboard", myBoard)
-	fmt.Println("theirboard", theirBoard)
-	fmt.Println("my, their stones", myStones, theirStones)
+	//fmt.Println("myboard", myBoard)
+	//fmt.Println("theirboard", theirBoard)
+	//fmt.Println("my, their stones", myStones, theirStones)
 	if from == -1 {
 		if myBoard[from+spaces] == 1 {
 			panic("can't move stone on")
