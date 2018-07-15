@@ -77,11 +77,12 @@ func (g *Game) Move(colour string, from, spaces int) error {
 		} else {
 			g.WhiteStones--
 		}
-		fmt.Println(g.BlackStones)
+		///fmt.Println(g.BlackStones)
 		return nil
 	}
 	(*r)[from] = 0
 	(*r)[from+spaces] = 1
+	g.capture(colour)
 	return nil
 }
 

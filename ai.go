@@ -5,15 +5,14 @@ import (
 	"math/rand"
 )
 
-func ComputerMove(g *Game, colour string) (int, int) {
-	r := roll()
+func ComputerMove(g *Game, colour string, r int) int {
 	options := g.GetAllMoves(r, colour)
 	//fmt.Println("Options", options, "roll", r)
 	if len(options) == 0 {
-		return -2, 0
+		return -2
 	}
 	if len(options) == 1 {
-		return options[0], r
+		return options[0]
 	}
 	moveScores := make([]float64, len(options))
 	//use some ai to choose the best move.
@@ -26,7 +25,7 @@ func ComputerMove(g *Game, colour string) (int, int) {
 	//fmt.Println("scores ", moveScores)
 	bestMove := pickBest(options, moveScores)
 	//fmt.Println("choice", bestMove)
-	return bestMove, r
+	return bestMove
 }
 
 func copyRow(source Row, destination *Row) {

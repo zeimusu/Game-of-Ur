@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="urscript" type="text/javascript"></script>
+    <link href="urstyle" rel= "stylesheet" type="text/css" />
+    <title>js test</title>
+</head>
+
+<body>
+    <p> I rolled
+        <script>
+            document.write(roll())
+        </script>
+    </p>
+    <p>
+        <input id="movefrom" type="number" min="-1" max="13" value="0" />
+        <input id="spaces" type="number" min="0" max="4" value="0" />
+        <button id="move" onclick="getMove()">Move</button>
+    </p>
+    <p>
+        <input id="cspaces" type="number" min="0" max="4" value="0" />
+        <button id="cmove" onclick="getComputerMove()">Computer Move</button>
+    </p>
+    <div id="game">Game will appear here</div>
+    <button onclick="myFunction()">Click me</button>
+
+    <p id="demo"></p>
+
+    <canvas id="canvas1" width=800 height=300></canvas>
+</body>
+
+</html>
