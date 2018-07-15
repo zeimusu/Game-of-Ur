@@ -1,2 +1,5 @@
 
-#canvas1 {background: url('/RoyalGameofUr')}
+#canvas1 {
+    background-repeat: no-repeat;
+    background-image: url('/RoyalGameofUr');
+}
