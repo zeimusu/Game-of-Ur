@@ -75,8 +75,6 @@ function drawBoard(j) {
     var board = JSON.parse(j);
     var c = document.getElementById('canvas1').getContext('2d');
     c.clearRect(0,0,800,300,false)
-    c.fillStyle = "Linen";
-    c.fillRect(0, 0, 800, 300); // Background rectangle
     drawStones("Black",board,c)
     drawStones("White",board,c)
 }

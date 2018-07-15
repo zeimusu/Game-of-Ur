@@ -85,6 +85,9 @@ func handleJS(w http.ResponseWriter, r *http.Request) {
 func handleCSS(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "urstyle.css")
 }
+func handleBG(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "RoyalGameofUr.png")
+}
 
 func errorHandler(w http.ResponseWriter, r *http.Request, status int) {
 	w.WriteHeader(status)
@@ -106,5 +109,6 @@ func (g *Game) server() {
 	http.HandleFunc("/computer", g.handleComputerMove)
 	http.HandleFunc("/urscript", handleJS)
 	http.HandleFunc("/urstyle", handleCSS)
+	http.HandleFunc("/RoyalGameofUr", handleBG)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
